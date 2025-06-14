@@ -19,17 +19,21 @@
       const gaji = parseFloat(document.getElementById("gaji").value) || 0;
       const tunjangan = parseFloat(document.getElementById("tunjangan").value) || 0;
       const jenis = document.getElementById("jenis").value;
-      const totalGaji = gaji + tunjangan;
+      let totalGaji = gaji + tunjangan;
+      // Validasi jika tunjangan sangat besar dibanding gaji pokok
+      if (gaji > 0 && tunjangan / gaji > 3) {
+        alert("Perhatian: Tunjangan tetap jauh lebih besar dari gaji pokok. Pastikan proporsinya wajar sesuai ketentuan BPJS.");
+      }
 
       const batasAtasKesehatan = 120000;
-      const dasarKesehatan = Math.min(totalGaji, batasAtasKesehatan);
-      const kesehatan = dasarKesehatan * 0.05;
-      const kesehatanPegawai = dasarKesehatan * 0.01;
+      const dasarKesehatan = Math.min(totalGaji, 12000000);
+      const kesehatan = Math.min(dasarKesehatan * 0.05, 120000);
+      const kesehatanPegawai = Math.min(dasarKesehatan * 0.01, 120000);
 
       const jhtPerusahaan = totalGaji * 0.037;
       const jhtPegawai = totalGaji * 0.02;
 
-      const const batasAtasJP = 9559600;
+      const batasAtasJP = 9559600;
       const dasarJP = Math.min(totalGaji, batasAtasJP);
       const jpPerusahaan = dasarJP * 0.02;
       const jpPegawai = dasarJP * 0.01;
