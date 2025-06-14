@@ -21,7 +21,7 @@
       const jenis = document.getElementById("jenis").value;
       const totalGaji = gaji + tunjangan;
 
-      const batasAtasKesehatan = 12000000;
+      const batasAtasKesehatan = 120000;
       const dasarKesehatan = Math.min(totalGaji, batasAtasKesehatan);
       const kesehatan = dasarKesehatan * 0.05;
       const kesehatanPegawai = dasarKesehatan * 0.01;
@@ -29,9 +29,10 @@
       const jhtPerusahaan = totalGaji * 0.037;
       const jhtPegawai = totalGaji * 0.02;
 
-      const jpUpah = Math.min(totalGaji, 9559600);
-      const jpPerusahaan = jpUpah * 0.02;
-      const jpPegawai = jpUpah * 0.01;
+      const const batasAtasJP = 9559600;
+      const dasarJP = Math.min(totalGaji, batasAtasJP);
+      const jpPerusahaan = dasarJP * 0.02;
+      const jpPegawai = dasarJP * 0.01;
 
       const jkk = totalGaji * 0.0024;
       const jkm = totalGaji * 0.003;
@@ -90,7 +91,7 @@
 
     <p class="mt-2 text-xs text-gray-500">
       <strong>Rasio Potongan BPJS:</strong><br>
-      - BPJS Kesehatan: 1% Pegawai, 4% Perusahaan (maks. potongan dari Rp12.000.000)<br>
+      - BPJS Kesehatan: 1% Pegawai, 4% Perusahaan (maks. potongan Rp120.000)<br>
       - JHT: 2% Pegawai, 3.7% Perusahaan<br>
       - JP: 1% Pegawai, 2% Perusahaan (maks. potongan dari Rp9.559.600)<br>
       - JKK & JKM: Ditanggung penuh oleh perusahaan
