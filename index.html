@@ -21,8 +21,10 @@
       const jenis = document.getElementById("jenis").value;
       const totalGaji = gaji + tunjangan;
 
-      const kesehatan = totalGaji * 0.05;
-      const kesehatanPegawai = totalGaji * 0.01;
+      const batasAtasKesehatan = 12000000;
+      const dasarKesehatan = Math.min(totalGaji, batasAtasKesehatan);
+      const kesehatan = dasarKesehatan * 0.05;
+      const kesehatanPegawai = dasarKesehatan * 0.01;
 
       const jhtPerusahaan = totalGaji * 0.037;
       const jhtPegawai = totalGaji * 0.02;
@@ -84,6 +86,14 @@
     <!-- Note about regulation -->
     <p class="mt-4 text-xs text-gray-500">
       Mengacu pada <a href="https://www.bpjsketenagakerjaan.go.id/assets/uploads/peraturan/05022016_110051_PER%20BPJSTK%20NOMOR%2005%20TAHUN%202015.pdf" target="_blank" class="text-blue-500 underline">Peraturan BPJS Ketenagakerjaan Nomor 5 Tahun 2015</a> tentang Tata Cara Pembayaran Iuran dan Pelaporan Data Peserta.
+    </p>
+
+    <p class="mt-2 text-xs text-gray-500">
+      <strong>Rasio Potongan BPJS:</strong><br>
+      - BPJS Kesehatan: 1% Pegawai, 4% Perusahaan (maks. potongan dari Rp12.000.000)<br>
+      - JHT: 2% Pegawai, 3.7% Perusahaan<br>
+      - JP: 1% Pegawai, 2% Perusahaan (maks. potongan dari Rp9.559.600)<br>
+      - JKK & JKM: Ditanggung penuh oleh perusahaan
     </p>
 
     <!-- AdSense Section -->
